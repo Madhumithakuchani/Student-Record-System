@@ -71,4 +71,36 @@ class StudentRecordSystem {
                 case 1:
                     System.out.print("Enter Student Name: ");
                     String name = scanner.nextLine();
-                    System.out.print("
+                    System.out.print("Enter Student ID: ");
+                    String id = scanner.nextLine();
+                    System.out.print("Enter Student Gender (M/F): ");
+                    String gender = scanner.nextLine();
+                    students.add(new Student(name, id, gender));
+                    break;
+                case 2:
+                    System.out.print("Enter Student ID: ");
+                    String studentId = scanner.nextLine();
+                    for (Student student : students) {
+                        if (student.getId().equals(studentId)) {
+                            System.out.println("\nStudent Details");
+                            System.out.println("Name: " + student.getName());
+                            System.out.println("ID: " + student.getId());
+                            System.out.println("Gender: " + student.getGender());
+                            System.out.println("Marks: " + student.getMarks());
+                            System.out.println("Subjects: " + student.getSubjects());
+                            System.out.println("Attendance: " + student.getAttendance());
+                            break;
+                        }
+                    }
+                    break;
+                case 3:
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("Invalid Option. Please try again.");
+                    break;
+            }
+        }
+        scanner.close();
+    }
+}
